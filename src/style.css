@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/INTER_18PT-MEDIUM.TTF') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'PPMondwest';
+  src: url('./assets/fonts/PPMONDWEST-REGULAR.OTF') format('opentype');
+}
+
+@font-face {
+  font-family: 'Dirtyline';
+  src: url('./assets/fonts/DIRTYLINE36DAYSOFTYPE.OTF') format('opentype');
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+}
