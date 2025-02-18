@@ -28,8 +28,61 @@ onMounted(() => {
 })
 })
 
-
 </script>
+
+<!-- <script lang="ts" setup>
+import Header from '../components/Header.vue'
+const links = ['About', 'Works', 'Contact']
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+import { useRouter } from 'vue-router'
+
+const target = ref('Home');
+const router = useRouter();
+
+onMounted(() => {
+    const linkElements = document.querySelectorAll('.link')
+    const menuBg = document.querySelector('.menu-bg')
+    const menuText = document.querySelectorAll('.menu .text')
+
+    gsap.set(menuBg, { height: 0 })
+
+    linkElements.forEach(link => {
+        const handleMouseEnter = () => {
+            gsap.to(menuBg, { height: '15vh', duration: 0.5, ease: 'power2.out' })
+            target.value = link.textContent?.slice(2) || 'Home'
+            gsap.to(menuText, { color: 'rgb(235, 235, 235)', duration: 0.5, ease: 'power2.out' })
+        }
+
+        const handleMouseLeave = () => {
+            gsap.to(menuBg, { height: 0, duration: 0.5, ease: 'power2.in' })
+            gsap.to(menuText, { color: '#1C1C1C', duration: 0.5, ease: 'power2.in' })
+        }
+
+        const handleClick = (event: Event) => {
+            event.preventDefault();
+            link.removeEventListener('mouseenter', handleMouseEnter)
+            link.removeEventListener('mouseleave', handleMouseLeave)
+            gsap.to(menuBg, { height: '100vh', duration: 0.5, ease: 'power2.out', onComplete: () => {
+                const to = link.getAttribute('href');
+                if (to) {
+                    router.push(to).then(() => {
+                        gsap.to(menuBg, { height: 0, duration: 0.5, ease: 'power2.in' });
+                    });
+                }
+            }});
+        }
+
+        link.addEventListener('mouseenter', handleMouseEnter)
+        link.addEventListener('mouseleave', handleMouseLeave)
+        link.addEventListener('click', handleClick)
+    })
+})
+</script> 
+
+TO ADD - URGENT
+
+--> 
 
 <template>
     <Header />
