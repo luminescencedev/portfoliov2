@@ -4,28 +4,28 @@ const links = ['About', 'Works', 'Contact']
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 
-
 const target = ref('Home');
 
+
 onMounted(() => {
-    const links = document.querySelectorAll('.link')
+
+    const linkElements = document.querySelectorAll('.link')
     const menuBg = document.querySelector('.menu-bg')
     const menuText = document.querySelectorAll('.menu .text')
+    const menu = document.querySelector('.menu')
+    gsap.set(menu, { opacity: 1})
 
-    gsap.set(menuBg, { height: 0 })
-
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            gsap.fromTo(menuBg, { height: 0 }, {  height: '15vh', duration: 0.5, ease: 'power2.out' })
-            target.value = link.textContent?.slice(2) || 'Home'
-            gsap.to(menuText, { color: 'rgb(235, 235, 235)', duration: 0.5, ease: 'power2.out' })
-
-        })
-        link.addEventListener('mouseleave', () => {
-            gsap.fromTo(menuBg, { height: '15vh' }, {  height: 0, duration: 0.5, ease: 'power2.in' })
-            gsap.to(menuText, { color: '#1C1C1C', duration: 0.5, ease: 'power2.in' })
-        })
+    linkElements.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        gsap.to(menuBg, {  height: '15vh', duration: 0.5, ease: 'power2.out' })
+        target.value = link.textContent?.slice(2) || 'Home'
+        gsap.to(menuText, { color: 'rgb(235, 235, 235)', duration: 0.5, ease: 'power2.out' })
     })
+    link.addEventListener('mouseleave', () => {
+        gsap.to(menuBg, {  height: 0, duration: 0.5, ease: 'power2.in' })
+        gsap.to(menuText, { color: '#1C1C1C', duration: 0.5, ease: 'power2.in' })
+    })
+})
 })
 
 
@@ -40,13 +40,13 @@ onMounted(() => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -bottom-3 -left-3  text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -bottom-3 -right-3  text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
             <div class="w-full h-[40%] flex flex-row items-center justify-center gap-10 text-[18.5rem] tracking-tighter">
-                <p class="text-[#1C1C1C] font-[Roxborough]">Arthur</p>
+                <p class="font-[Roxborough] hover-title">Arthur</p>
                 <p class="text-[#1C1C1C] font-[Roobert-Regular]">Garnier</p>
             </div>
             <div class="h-[20%] w-full menu z-10 ">
                 <div class="w-full h-full flex flex-row items-center justify-between text-[1rem]">
                     <p class="text-[#1C1C1C] text">Since 2004</p>
-                    <router-link to='/' v-for="link in links" class="link">
+                    <router-link :key="link" :to="`/${link.toLowerCase()}`" v-for="link in links" class="link" >
                         <p class="text-[#878787]/50">0{{ links.indexOf(link)+1}}</p>
                         <p class="text">{{ link }}</p>
                     </router-link>
@@ -76,15 +76,19 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="absolute left-0 top-[50%] h-screen w-screen bg-zinc-950 menu-bg translate-y-[-50%] overflow-hidden">
-            <div class="w-full h-full flex flex-col items-center justify-center">
-                <p class="text-[#1C1C1C] text-[10rem] leading-none font-[Roxborough] translate-y-[-5%] ">{{target}}</p>
-            </div>
-        </div>
     </div>
-    
 </template>
 
 <style>
+.hover-title {
+  transition: color 0.5s ease-in-out, -webkit-text-stroke 0.5s ease-in-out;
+  color: #1C1C1C;
+  -webkit-text-stroke: 3px transparent;
+}
+
+.hover-title:hover {
+    color: transparent;
+    -webkit-text-stroke: 3px #1C1C1C;
+}
 
 </style>
