@@ -4,16 +4,17 @@ import './style.css';
 import App from './App.vue';
 import router from './router';
 import pinia from './stores/index';
+import Loader from './components/Loader.vue';
 
 
 router.beforeEach((to, from,next) => {
     const app = document.querySelector('#app');
     const isInialized = app?.classList.contains('initialized');
 
-
     if (!isInialized) {
         gsap.set('.menu-bg', { height: 0 });
         app?.classList.add('initialized');
+
         next();
     } else {
         gsap.to('.menu-bg', { 

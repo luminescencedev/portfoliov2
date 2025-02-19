@@ -61,23 +61,25 @@ onMounted(() => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -top-3 -right-3 text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -bottom-3 -left-3 text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -bottom-3 -right-3 text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
-                <div class="w-full h-[40%] flex flex-row items-center justify-center gap-10 text-[17vw] tracking-tighter">
-                    <p v-if="!isHome" class="font-[Roxborough] hover-title">{{ props.currentRouteName }}</p>
-                    <p v-if="isHome" class="font-[Roxborough] hover-title">Arthur</p>
-                    <p v-if="isHome" class="text-[#1C1C1C] font-[Roobert-Regular]">Garnier</p>
-                </div>
-                <div class="h-[20%] w-full menu z-11" :class="{ 'hidden': !isVisible }">
-                    <div class="w-full h-full flex flex-row items-center justify-between text-[1rem]">
-                        <p class="text-[#1C1C1C] text">Since 2004</p>
-                        <router-link :key="link" :to="`/${link.toLowerCase()}`" v-for="link in links" class="link">
-                            <p class="text-[#878787]/50">0{{ links.indexOf(link) + 1 }}</p>
-                            <p class="text">{{ link }}</p>
-                        </router-link>
-                        <p class="text-[#1C1C1C] text">2025&copy;</p>
+                <div class="w-full h-full landing-hero">
+                    <div class="w-full h-[40%] flex flex-row items-center justify-center gap-10 text-[17vw] tracking-tighter">
+                        <p v-if="!isHome" class="font-[Roxborough] hover-title">{{ props.currentRouteName }}</p>
+                        <p v-if="isHome" class="font-[Roxborough] hover-title">Arthur</p>
+                        <p v-if="isHome" class="text-[#1C1C1C] font-[Roobert-Regular]">Garnier</p>
                     </div>
+                    <div class="h-[20%] w-full menu z-15" :class="{ 'hidden': !isVisible }">
+                        <div class="w-full h-full flex flex-row items-center justify-between text-[1rem]">
+                            <p class="text-[#1C1C1C] text z-15">Since 2004</p>
+                            <router-link :key="link" :to="`/${link.toLowerCase()}`" v-for="link in links" class="link z-15">
+                                <p class="text-[#878787]/50">0{{ links.indexOf(link) + 1 }}</p>
+                                <p class="text">{{ link }}</p>
+                            </router-link>
+                            <p class="text-[#1C1C1C] text z-15">2025&copy;</p>
+                        </div>
+                    </div>
+                    <div class="h-[20%] w-full" :class="{ 'hidden': isVisible, 'block': !isVisible }"></div>
+                    <slot></slot>
                 </div>
-                <div class="h-[20%] w-full" :class="{ 'hidden': isVisible, 'block': !isVisible }"></div>
-                <slot></slot>
             </div>
         </div>
     </div>

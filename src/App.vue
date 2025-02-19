@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Loader from './components/Loader.vue';
 import { useTargetStore } from './stores/targetStore';
 const targetStore = useTargetStore();
 
@@ -10,7 +11,8 @@ const targetStore = useTargetStore();
         <div class="w-full h-full flex flex-col items-center justify-center">
             <p class="text-[#1C1C1C] text-[10rem] leading-none font-[Roxborough] translate-y-[-5%] ">{{ targetStore.target }}</p>
         </div>
-    </div>
+    </div> 
+    <Loader />
 </template>
 
 <style scoped>
