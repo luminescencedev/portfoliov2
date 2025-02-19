@@ -9,7 +9,7 @@ onMounted(() => {
   const loader = document.querySelector('.loader');
   var tl = gsap.timeline();
   tl.to(textContainer, { translateY: '0%', duration: 1, ease: "power4.out"});
-  tl.to(count, { value: 100, duration: 3, onUpdate: () => { count.value = Math.round(count.value); } }, ">");
+  tl.to(count, { value: 100, duration: 3, ease: "power4.inOut", onUpdate: () => { count.value = Math.round(count.value); } }, ">");
   tl.to(textContainer, { translateY: '-100%', duration: 1, ease: "power4.out"}, ">");
   tl.to(loader, { opacity: 0, duration: 1, ease: "power4.out"}, ">");
   tl.to(loader, { display: 'none', duration: 0, ease: "power4.out"}, ">");
