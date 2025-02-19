@@ -22,7 +22,12 @@ onMounted(() => {
     linkElements.forEach(link => {
         const handleMouseEnter = () => {
             gsap.to(menuBg, { height: '15vh', duration: 0.5, ease: 'power2.out' });
-            targetStore.setTarget(link.textContent?.slice(2) || 'Home');
+            const linkText = link.textContent?.slice(2) as string;
+            if (!links.includes(linkText)) {
+                targetStore.setTarget('Home');
+            } else {
+                targetStore.setTarget(linkText);
+            }
             gsap.to(menuText, { color: 'rgb(235, 235, 235)', duration: 0.5, ease: 'power2.out' });
         };
         const handleMouseLeave = () => {
@@ -31,7 +36,7 @@ onMounted(() => {
         };
 
         const handleClick = () => {
-            if (link.textContent?.slice(2).toLowerCase() !== props.currentRouteName.toLowerCase()) {
+            if (link.textContent?.slice(2).toLowerCase() !== props.currentRouteName.toLowerCase() && !link.closest('.header')) {
                 gsap.to('.menu', {
                     opacity: 0,
                     duration: 0.2,
