@@ -18,9 +18,12 @@ router.beforeEach((to, from,next) => {
     } else {
         gsap.to('.menu-bg', { 
             height: '100vh', 
-            duration: 2, 
+            duration: 1.5, 
             ease: 'power2.in', 
             onComplete: () => {
+                gsap.set('.menu', {
+                    opacity: 0,
+                })
                 next();
             },
         })
@@ -28,11 +31,19 @@ router.beforeEach((to, from,next) => {
 });
 
 router.afterEach((to, from) => {
+    gsap.set('.menu-bg', {
+        zIndex: 1000,
+    });
     setTimeout(() => {
         gsap.to('.menu-bg', { 
             height: 0, 
-            duration: 1, 
+            duration: 1.5, 
             ease: 'power2.out', 
+            onComplete: () => {
+                gsap.set('.menu-bg', {
+                zIndex: 10,
+                });
+            },
         });
     }, 1000);
 });

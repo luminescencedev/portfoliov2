@@ -14,7 +14,6 @@ const isVisible = ref(true);
 
 onMounted(() => {
     isVisible.value = true;
-    gsap.set('.menu', { opacity: 1 });
 
     const linkElements = document.querySelectorAll('.link');
     const menuBg = document.querySelector('.menu-bg');
@@ -32,16 +31,18 @@ onMounted(() => {
         };
 
         const handleClick = () => {
-            gsap.to('.menu', {
-                opacity: 0,
-                duration: 0.2,
-                ease: 'power2.in',
-                onComplete: () => {
+            if (link.textContent?.slice(2).toLowerCase() !== props.currentRouteName.toLowerCase()) {
+                gsap.to('.menu', {
+                    opacity: 0,
+                    duration: 0.2,
+                    ease: 'power2.in',
+                    onComplete: () => {
                     isVisible.value = false;
-                }
-            });
-            link.removeEventListener('mouseenter', handleMouseEnter);
-            link.removeEventListener('mouseleave', handleMouseLeave);
+                    }
+                });
+                link.removeEventListener('mouseenter', handleMouseEnter);
+                link.removeEventListener('mouseleave', handleMouseLeave);
+            }
         };
 
         link.addEventListener('mouseenter', handleMouseEnter);
@@ -83,4 +84,14 @@ onMounted(() => {
 </template>
 
 <style>
+.hover-title {
+    color: #1C1C1C;
+    -webkit-text-stroke: 3px transparent;
+    transition: all 0.5s ease;
+}
+
+.hover-title:hover {
+   color: transparent;
+    -webkit-text-stroke: 3px #1C1C1C;
+}
 </style>
