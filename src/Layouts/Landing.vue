@@ -36,17 +36,20 @@ onMounted(() => {
         };
 
         const handleClick = () => {
-            if (link.textContent?.slice(2).toLowerCase() !== props.currentRouteName.toLowerCase() && !link.closest('.header')) {
-                gsap.to('.menu', {
-                    opacity: 0,
-                    duration: 0.2,
-                    ease: 'power2.in',
-                    onComplete: () => {
-                    isVisible.value = false;
-                    }
-                });
-                link.removeEventListener('mouseenter', handleMouseEnter);
-                link.removeEventListener('mouseleave', handleMouseLeave);
+            if (link.textContent?.slice(2).toLowerCase() !== props.currentRouteName.toLowerCase() ) {
+                if (!(props.currentRouteName.toLowerCase() === 'home' && link.textContent ==='ART⯌')) {
+                    gsap.to('.menu', {
+                        opacity: 0,
+                        duration: 0.2,
+                        ease: 'power2.in',
+                        onComplete: () => {
+                            isVisible.value = false;
+                        }
+                    });
+
+                    link.removeEventListener('mouseenter', handleMouseEnter);
+                    link.removeEventListener('mouseleave', handleMouseLeave);
+                }
             }
         };
 
@@ -59,8 +62,7 @@ onMounted(() => {
 
 <template>
     <Header />
-    <div class="w-screen min-h-screen">
-        <div class="h-screen w-screen p-10 overflow-hidden">
+        <div class="h-screen w-screen p-10 overflow-hidden" id="top">
             <div class="w-full h-full relative flex flex-col border-[#1C1C1C]/20 border border-dashed">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -top-3 -left-3 text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute h-6 w-6 -top-3 -right-3 text-[#1C1C1C]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path></svg>
@@ -87,7 +89,6 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <style>

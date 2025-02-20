@@ -32,7 +32,7 @@ onMounted(() => {
         <div class="overflow-y-hidden">
           <div class="w-full h-full flex flex-col justify-center px-28 text-container translate-y-[100%] ">
             <div class=" flex justify-end ">
-              <h1 class="text-5xl text-[#1C1C1C] leading-snug font-[Roxborough]"><span class="text-outline">{{ count }}%</span></h1>
+              <h1 class="text-5xl text-[#1C1C1C] leading-snug font-[Roxborough]"><span>{{ count }}%</span></h1>
             </div>
             <div class="flex justify-center">
               <div class="w-full">
@@ -48,8 +48,4 @@ onMounted(() => {
 
 <style>
 
-.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 2px #1C1C1C;
-}
 </style>

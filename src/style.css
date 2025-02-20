@@ -32,25 +32,3 @@ html, body {
   color: rgb(28, 28, 28);
   background-color: rgb(235, 235, 235);
 }
-
-.efrei {
-  position: relative;
-}
-
-.efrei:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(28, 28, 28, 0.8);
-  transition: transform 0.25s ease-out;
-  transform-origin: bottom right;
-}
-
-.efrei:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}

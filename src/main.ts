@@ -28,6 +28,11 @@ router.beforeEach((to, from,next) => {
                 next();
             },
         })
+        gsap.to('.menu-bg p', {
+            color: 'white',
+            duration: 1.5,
+            ease: 'power2.in',
+        });
     }
 });
 
@@ -45,7 +50,13 @@ router.afterEach((to, from) => {
                 zIndex: 10,
                 });
             },
+        })
+        gsap.to('.menu-bg p', {
+            color: '#1C1C1C',
+            duration: 1.5,
+            ease: 'power2.out',
         });
+
     }, 1000);
 });
 

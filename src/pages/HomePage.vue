@@ -24,13 +24,33 @@ const currentRouteName = route.name as string;
                 <div class="text-[#1C1C1C]/80 text-center">
                     <p>ARTHUR GARNIER (HE/HIM),</p>
                     <p>IM A FRENCH WEB DEVELOPER BASED IN PARIS.</p>
-                    <p>CURRENTLY <a class="efrei" href="https://www.efrei.fr" target="_blank">@EFREI</a></p>
+                    <p>CURRENTLY <a class="underline-anim" href="https://www.efrei.fr" target="_blank">@EFREI</a></p>
                 </div>
             </div>
         </div>
     </Landing>
 </template>
 
-<style>
+<style scoped>
+.underline-anim {
+  position: relative;
+}
 
+.underline-anim:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(28, 28, 28, 0.8);
+  transition: transform 0.25s ease-out;
+  transform-origin: bottom right;
+}
+
+.underline-anim:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 </style>
