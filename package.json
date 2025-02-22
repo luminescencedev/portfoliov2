@@ -1,5 +1,5 @@
 {
-  "name": "portfoliov3",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,14 +12,17 @@
     "@tailwindcss/vite": "^4.0.7",
     "gsap": "^3.12.7",
     "lenis": "^1.1.20",
+    "locomotive-scroll": "^4.1.4",
     "pinia": "^3.0.1",
     "tailwindcss": "^4.0.7",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@types/locomotive-scroll": "^4.1.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
+    "sass-embedded": "^1.85.0",
     "typescript": "~5.7.2",
     "vite": "^6.1.0",
     "vue-tsc": "^2.2.0"

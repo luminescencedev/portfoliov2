@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Landing from '../Layouts/Landing.vue';
-import Works from '../components/Works.vue';
+import Works from '../Layouts/Works.vue';
 import { useRoute } from 'vue-router';
 
 

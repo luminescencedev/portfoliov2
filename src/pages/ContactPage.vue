@@ -19,8 +19,9 @@ const currentRouteName = route.name as string;
       </div>
       <div class="w-[20%] h-[100%] flex flex-col justify-end items-end p-12 gap-4">
         <div class="flex flex-col gap-4 text-[#1C1C1C]">
-          <a href="https://www.linkedin.com/in/arthurgarnierdev" target="_blank" class="underline-anim flex flex-row items-end "><h1 class="leading-none">LinkedIn</h1><img src="../assets/images/arrow-top-right.svg" alt="" class="size-5"></a>
-          <a href="https://github.com/luminescencedev" target="_blank" class="underline-anim flex flex-row items-end justify-end"><h1 class="leading-none ">GitHub</h1><img src="../assets/images/arrow-top-right.svg" alt="" class="size-5"></a>
+            <a href="mailto:arthur.garnier1090@gmail.com" class="flex justify-end"><div class="underline-anim flex items-end justify-end"><h1 class="leading-none">Email</h1><img src="../assets/images/arrow-top-right.svg" alt="" class="size-5"></div></a>
+          <a href="https://www.linkedin.com/in/arthurgarnierdev" target="_blank" class="flex justify-center"><div class="underline-anim flex items-end justify-end"><h1 class="leading-none">LinkedIn</h1><img src="../assets/images/arrow-top-right.svg" alt="" class="size-5"></div></a>
+          <a href="https://github.com/luminescencedev" target="_blank" class="flex justify-end"><div class="underline-anim flex items-end justify-end"><h1 class="leading-none ">GitHub</h1><img src="../assets/images/arrow-top-right.svg" alt="" class="size-5"></div></a>
         </div>
       </div>
     </div>

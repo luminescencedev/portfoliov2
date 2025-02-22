@@ -3,6 +3,7 @@ import Landing from '../Layouts/Landing.vue';
 import About from '../components/About.vue';
 import { useRoute } from 'vue-router';
 
+
 const route = useRoute();
 const currentRouteName = route.name  as string;
 
@@ -16,6 +17,9 @@ const scrollToTop = () => {
   const top = document.getElementById('top');
   top?.scrollIntoView({ behavior: 'smooth' });
 }
+
+
+
 
 </script>
 
@@ -39,5 +43,4 @@ const scrollToTop = () => {
 
 
 <style>
-
 </style>

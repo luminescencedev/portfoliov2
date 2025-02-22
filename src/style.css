@@ -32,3 +32,12 @@ html, body {
   color: rgb(28, 28, 28);
   background-color: rgb(235, 235, 235);
 }
+
+#page {
+  scroll-behavior: smooth;
+}
+
+
+#page::-webkit-scrollbar {
+  width: 0rem;
+}
