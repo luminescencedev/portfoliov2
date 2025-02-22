@@ -4,12 +4,13 @@ import './style.css';
 import App from './App.vue';
 import router from './router';
 import pinia from './stores/index';
-import Loader from './components/Loader.vue';
 
 
 router.beforeEach((to, from,next) => {
     const app = document.querySelector('#app');
     const isInialized = app?.classList.contains('initialized');
+
+    console.log(to, from);
 
     if (!isInialized) {
         gsap.set('.menu-bg', { height: 0 });
@@ -37,6 +38,9 @@ router.beforeEach((to, from,next) => {
 });
 
 router.afterEach((to, from) => {
+
+    console.log(to, from);
+
     gsap.set('.menu-bg', {
         zIndex: 1000,
     });

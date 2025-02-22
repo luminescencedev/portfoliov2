@@ -4,7 +4,7 @@ const works = [
         type: 'Website',
         stack: 'Vue.js, TypeScript, TailwindCSS, Pinia, GSAP',
         year: '2025',
-        img: '/src/assets/images/portfolio_landing.png',
+        img: '/portfolio_landing.png',
         link:'https://github.com/luminescencedev/portfoliov2'
     },
     {
@@ -12,7 +12,7 @@ const works = [
         type: 'Website',
         stack: 'HTML5, CSS3, PHP, Javascript, Ajax',
         year: '2024',
-        img: '/src/assets/images/collabdoor_landing.png',
+        img: '/collabdoor_landing.png',
         link: 'https://github.com/MPSBeats/ChallengeWeb_CollabDoor'
     },
     {
@@ -20,7 +20,7 @@ const works = [
         type: 'Website',
         stack: 'HTML5, CSS3, Alpine.js, TailwindCSS',
         year: '2024',
-        img: '/src/assets/images/alpine_landing.png',
+        img: '/alpine_landing.png',
         link:'https://github.com/luminescencedev/alpineJs_Final.git'
     },
     {
@@ -28,7 +28,7 @@ const works = [
         type: 'Website',
         stack: 'Twig, CSS3, Symfony, PHP, Javascript',
         year: '2024',
-        img: '/src/assets/images/garage_landing.png',
+        img: '/garage_landing.png',
         link:'https://github.com/luminescencedev/garageProject.git'
     }
 ];
