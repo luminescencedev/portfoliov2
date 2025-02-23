@@ -8,18 +8,18 @@ const currentRouteName = route.name as string;
 
 <template>
     <Landing :currentRouteName="currentRouteName">
-        <div class="w-full h-[40%] flex flex-row items-center justify-center">
-            <div class="w-[33%] flex flex-col items-center justify-center leading-none gap-4">
+        <div class="w-full h-[50%] md:h-[40%] flex flex-row items-center justify-center md:text-sm xl:text-base">
+            <div class="w-[33%] hidden md:flex flex-col items-center justify-center leading-none gap-4">
                 <p>⯌</p>
                 <div class="text-[#1C1C1C]/80 text-center">
                     <p>PASSIONATE WITH CREATIVE DESIGN,</p>
                     <p>I PRACTICE EVERY DAY TO BE BETTER AT MY WORK.</p>
                 </div>
             </div>
-            <div class="w-[34%] flex flex-col items-center justify-center">
+            <div class="w-[100%] md:w-[34%] flex flex-col items-center justify-center">
                 <img src="../assets/images/illu_boy.svg" alt="">
             </div>
-            <div class="w-[33%] flex flex-col items-center justify-center leading-none gap-4">
+            <div class=" hidden md:flex w-[33%] flex-col items-center justify-center leading-none gap-4">
                 <p>⯌</p>
                 <div class="text-[#1C1C1C]/80 text-center">
                     <p>ARTHUR GARNIER (HE/HIM),</p>

@@ -26,7 +26,7 @@ const scrollToTop = () => {
 <template>
    <div id="page" class="w-screen h-screen overflow-x-hidden">
     <Landing :currentRouteName="currentRouteName">
-      <div class="w-full h-[40%] flex flex-row items-center justify-center">
+      <div class="w-full h-[50%] md:h-[40%] flex flex-row items-center justify-center">
         <div class="flex flex-col items-center gap-4 cursor-pointer" @click.prevent="scrollToAbout">
           <h1 class="text-center">Learn More</h1>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 arrow-animation">
