@@ -29,11 +29,10 @@
           <li><span class="font-semibold text-[#1C1C1C]">Intern at Orange France:</span> Customer service, product placement.</li>
           <li><span class="font-semibold text-[#1C1C1C]">Intern at Intermarché:</span> Logistics, shelf stocking, organization.</li>
         </ul>
-
         <h3 class="text-[4vw] md:text-[3vw] font-semibold text-[#1C1C1C] mt-4">Skills</h3>
-        <p class="text-[#878787]/80 max-w-3xl text-[2vw] md:text-[1.2vw] leading-relaxed">
-          HTML, CSS, Tailwind, JavaScript, PHP, MySQL, PostgreSQL, Vue.js, React, Alpine.js, Express.js.
-        </p>
+        <div class="w-full max-w-3xl">
+          <LanguageCarousel />
+        </div>
 
         <h3 class="text-[4vw] md:text-[3vw] font-semibold text-[#1C1C1C] mt-4">Why Work With Me?</h3>
         <p class="text-[#878787]/80 max-w-3xl text-[2vw] md:text-[1.2vw] leading-relaxed">
@@ -46,7 +45,7 @@
 
 
 <script lang="ts" setup>
-
+import LanguageCarousel from './LanguageCarousel.vue'
 </script>
 
 <style>
