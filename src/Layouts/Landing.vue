@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Header from '../components/Header.vue'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref} from 'vue'
 import gsap from 'gsap'
 import { useTargetStore } from '../stores/targetStore'
 
@@ -8,12 +8,23 @@ const props = defineProps<{ currentRouteName: string }>();
 
 const isHome = props.currentRouteName === 'Home';
 
+const isMobile = ref(true);
+
 const links = ['About', 'Works', 'Contact'];
 const targetStore = useTargetStore();
 const isVisible = ref(true);
 
 onMounted(() => {
     isVisible.value = true;
+
+    const checkScreenSize = () => {
+        isMobile.value = window.innerWidth < 768
+    }
+    // Check initial screen size
+    checkScreenSize()
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize)
 
     const linkElements = document.querySelectorAll('.link');
     const menuBg = document.querySelector('.menu-bg');
@@ -78,8 +89,7 @@ onMounted(() => {
                         <div class="w-full h-full flex flex-col md:flex-row items-center justify-between md:text-[1.5vw] xl:text-[1vw]">
                             <p class="text-[#1C1C1C] hidden md:block text z-15">Since 2004</p>
                             <router-link :key="link" :to="`/${link.toLowerCase()}`" v-for="link in links" class="flex flex-row gap-4 md:gap-0 md:flex-col link z-15">
-                                <p class="text-[#878787]/50">0{{ links.indexOf(link) + 1 }}</p>
-                                <p class="text">{{ link }}</p>
+                                <p :class="{ 'text': !isMobile}">{{ link }}</p>
                             </router-link>
                             <p class="text-[#1C1C1C] hidden md:block text z-15">2025&copy;</p>
                         </div>
@@ -102,4 +112,6 @@ onMounted(() => {
    color: transparent;
     -webkit-text-stroke: 3px #1C1C1C;
 }
+
+
 </style>
